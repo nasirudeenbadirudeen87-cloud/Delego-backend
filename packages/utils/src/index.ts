@@ -5,8 +5,27 @@ export {
   type Logger,
   type LogContext,
 } from "./logger.js";
+export {
+  PII_PATTERNS,
+  PII_REDACTION_PLACEHOLDER,
+  maskPii,
+  maskPiiDeep,
+  containsPii,
+} from "./piiMasking.js";
+export {
+  DEFAULT_WEBSOCKET_MONITOR_CONFIG,
+  enableSocketKeepAlive,
+  WebSocketStallMonitor,
+  computeReconnectBackoffMs,
+  resolveReplayStartLedger,
+  type WebSocketMonitorConfig,
+  type KeepAliveSocket,
+  type PingPongSocket,
+  type WebSocketStallMonitorHooks,
+} from "./websocketMonitor.js";
 export { CORRELATION_ID_HEADER, correlationMiddleware, fetchWithCorrelation } from "./correlation.js";
 export { stroopsToDisplay, displayToStroops } from "./currency.js";
+export { addDecimalStrings, sumDecimalStrings } from "./decimalMath.js";
 export {
   generateId,
   isValidStellarPublicKey,
@@ -126,6 +145,7 @@ export {
   RedisStreamManager,
   createStreamManager,
 } from "./redis/index.js";
+export { safeParseStreamPayload } from "./redis/streams.js";
 export type {
   StreamConfig,
   StreamEvent,
@@ -133,6 +153,8 @@ export type {
   StreamProcessingResult,
   StreamMessage,
   ParsedStreamMessage,
+  StreamMessageEnvelope,
+  ParseResult,
 } from "./redis/streams.js";
 
 export * from "./database/queryPerformance.js";
